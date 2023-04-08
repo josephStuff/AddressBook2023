@@ -25,9 +25,9 @@ namespace AddressBook2023.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-              return _context.Contacts != null ? 
-                          View(await _context.Contacts.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Contacts'  is null.");
+            return _context.Contacts != null ?
+                        View(await _context.Contacts.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Contacts'  is null.");
         }
 
         // GET: Contacts/Details/5
@@ -160,14 +160,14 @@ namespace AddressBook2023.Controllers
             {
                 _context.Contacts.Remove(contact);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ContactExists(int id)
         {
-          return (_context.Contacts?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Contacts?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
